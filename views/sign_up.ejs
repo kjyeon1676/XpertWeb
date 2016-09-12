@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title><%=title%></title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <!-- my Script -->
+        <script type="text/javascript", src="../javascripts/script.js"></script>
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+                    <h1><a href="/">@Xpert</a> by Yeunam University</h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down">Menu</a>
+								<ul>
+									<li><a href="#">Introduce</a></li>
+									<li><a href="#">Contact</a></li>
+									<li><a href="elements.html">News</a></li>
+									<li>
+										<a href="#">SubBoard</a>
+										<ul>
+											<li><a href="/freeboard_list">Free</a></li>
+											<li><a href="#">Web</a></li>
+											<li><a href="#">System</a></li>
+											<li><a href="#">Network</a></li>
+                                            <li><a href="#">Reversing</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="/sign_up" class="button">Sign Up</a></li>
+                            <% if(MyEMail!='손님'){%>
+                            <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                            <%} else{%>
+                            <li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> LogIn</a></li>
+                            <% }%>
+						</ul>
+					</nav>
+				</header>
+			<!-- Banner -->
+				<section id="banner" id=bannerImage>
+					<h2 style="font-style:oblique">@Xpert</h2>
+                    <% if(MyName!='손님'){%>
+                    <p> Welcom to <%= MyName %> and Let us Hacker Study</p>
+					<%} else{%>
+                    <p> Welcom to <%= MyName %> and Please Sign up</p>
+                    <%} %>
+                    <ul class="actions">
+						<li><a href="/sign_up" class="button special">Sign Up</a></li>
+						<li><a href="#" class="button">Learn More</a></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container">
+                <!-- 여기부터 채워넣기!-->
+                    <section class="box">
+                        <h3>회원가입</h3>
+                            <form method="post" action="/sign_up">
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u(mobilep)">
+                                        <input type="text" name="myName" id="myName" value="" placeholder="Name" autofocus/>
+                                    </div>
+                                    <div class="6u 12u(mobilep)">
+                                        <input type="email" name="myEmail" id="myEmail" value="" placeholder="Email" />
+                                    </div>
+                                </div>
+                                <div class="row uniform 50%">
+                                    <div class="12u">
+                                        <div class="select-wrapper">
+                                            <select name="category" id="category">
+                                                <option value="">- Grade -</option>
+                                                <option value="1">1학년</option>
+                                                <option value="1">2학년</option>
+                                                <option value="1">3학년</option>
+                                                <option value="1">4학년</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u(mobilep)">
+                                        <input type="text" name="myPhone" id="myPhone" value="" placeholder="your PhoneNum" />
+                                    </div>
+                                    <div class="6u 12u(mobilep)">
+                                        <input type="text" name="myAddress" id="myAddress" value="" placeholder="your HomeAddress" />
+                                    </div>
+                                </div>
+                                <br>
+                                <label><h3>Password</h3></label>
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u(mobilep)">
+                                        <input type="password" name="myPassword" id="myPassword" value="" placeholder="password" />
+                                    </div>
+                                    <div class="6u 12u(mobilep)">
+                                        <input type="password" name="confirmPassword" id="confirmPassword" value="" placeholder="One more please" />
+                                    </div>
+                                </div>
+                                <div class="row uniform 50%">
+                                    <div class="4u 12u(narrower)">
+                                        <input type="radio" id="priority-low" name="priorityl">
+                                        <label for="priority-low">준회원</label>
+                                    </div>
+                                    <div class="4u 12u(narrower)">
+                                        <input type="radio" id="priority-normal" name="priorityn">
+                                        <label for="priority-normal">정회원</label>
+                                    </div>
+                                    <div class="4u 12u(narrower)">
+                                        <input type="radio" id="priority-high" name="priorityh">
+                                        <label for="priority-high">Old Members</label>
+                                    </div>
+                                </div>
+                                <div class="row uniform 50%">
+                                    <div class="6u 12u(narrower)">
+                                        <input type="checkbox" id="copy" name="copy">
+                                        <label for="copy">Do you agree on the above information?</label>
+                                    </div>
+                                    <div class="6u 12u(narrower)">
+                                        <input type="checkbox" id="human" name="human" checked>
+                                        <label for="human">I am human and not a robot</label>
+                                    </div>
+                                </div>
+                                <div class="row uniform">
+                                    <div class="12u">
+                                        <ul class="actions">
+                                            <li><input type="submit" value="Send" /></li>
+                                            <li><input type="reset" value="Reset" class="alt" /></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        <hr />
+                    </section>
+				</section>
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; @Xpert. All rights reserved.</li><li>Made by : kjyeon1676@naver.com</li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollgress.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

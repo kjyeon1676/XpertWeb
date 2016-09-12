@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>@Xpert Home Page</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="../assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="../assets/css/main.css" />
+        <!-- my Script -->
+        <script type="text/javascript", src="../../javascripts/script.js"></script>
+		<!--[if lte IE 8]><link rel="stylesheet" href="../assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="landing">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1><a href="/">@Xpert</a> by Yeunam University</h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="/">Home</a></li>
+							<li>
+								<a href="#" class="icon fa-angle-down">Menu</a>
+								<ul>
+									<li><a href="#">Introduce</a></li>
+									<li><a href="#">Contact</a></li>
+									<li><a href="elements.html">News</a></li>
+									<li>
+										<a href="#">SubBoard</a>
+										<ul>
+											<li><a href="/freeboard_list">Free</a></li>
+											<li><a href="#">Web</a></li>
+											<li><a href="#">System</a></li>
+											<li><a href="#">Network</a></li>
+                                            <li><a href="#">Reversing</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="#" class="button">Sign Up</a></li>
+                            <% if(MyEMail!='손님'){%>
+                            <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                            <%} else{%>
+                            <li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> LogIn</a></li>
+                            <% }%>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Banner -->
+				<section id="banner">
+					<h2>famous saying</h2>
+					<p>The future depends on what we do in the present.</p>
+					<ul class="actions">
+						<li><a href="#" class="button special">Sign Up</a></li>
+						<li><a href="#" class="button">Learn More</a></li>
+					</ul>
+				</section>
+
+			<!-- Main -->
+            <section id="main" class="container">
+                    <div class="row">
+                        <div class="12u">
+                            <section class="box">
+                            <h3>Your Text</h3>
+                            <hr>
+                        <form method="post" action="/freeboard_post_update_next/<%= rows.idx%>">
+                            <div class="row uniform 50%">
+                                <div class="1u 12u(mobilep)">
+                                    <strong><h3>Title:</h3></strong>
+                                </div>
+                                <div class="11u 12u(mobilep)">
+                                    <input type="text" name="title" id="title" placeholder="<%= rows.title%>" required/>
+                                </div>
+                            </div>
+							<div class="row uniform 50%">
+								<div class="6u 12u(mobilep)">
+									<input type="text" name="Mname" id="Mname" value="<% rows.iname %>" placeholder="<%= rows.iname %>" readonly/>
+								</div>
+								<div class="6u 12u(mobilep)">
+									<input type="email" name="Memail" id="Memail" value="<% rows.iidx %>" placeholder="<%= rows.iidx %>" readonly/>
+								</div>
+							</div>
+						<div class="row uniform 50%">
+							<div class="12u">
+								<div class="select-wrapper">
+									<select name="category" id="category">
+										<option value="">
+                                        <% if(rows.category==0){%>
+                                            important
+                                        <%}else if(rows.category==1){%>
+                                            Joke
+                                        <%}else if(rows.category==2){%>
+                                            Introduce
+                                        <%}else{%>
+                                            Talk
+                                        <%}%>
+                                        </option>
+									</select>
+								</div>
+							</div>
+                        </div>
+						<div class="row uniform 50%">
+                                <strong><h3>Main Contexts</h3></strong>
+                            <div class="12u 12u(narrower)">
+								<input type="checkbox" id="copy" name="copy">
+								<label for="copy">I want to Secret My Context</label>
+                            </div>
+                            <div class="row uniform 50%" id="cPsw">
+                                
+                            </div>
+						</div>
+						<div class="row uniform 50%">
+							<div class="12u">
+                                <textarea name="message" name="message" id="message" rows="6" required><%= rows.itext %></textarea>
+							</div>
+						</div>
+						<div class="row uniform">
+							<div class="12u">
+								<ul class="actions">
+                                    <li><input type="submit" value="send" /></li>
+                                    <li><input type="reset" value="Reset" class="alt" /></li>
+                                    <li><a href="/freeboard_list" class="button">back</a></li>
+								</ul>
+							</div>
+						</div>
+						</form>
+                        <hr />
+                        </section>
+                        </div>
+                    </div>
+                </section>
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; @Xpert. All rights reserved.</li><li>Made by kjyeon1676@naver.com</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.dropotron.min.js"></script>
+			<script src="../assets/js/jquery.scrollgress.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="../assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="../assets/js/main.js"></script>
+            <script>
+            if($("#copy").click(function(){
+                if($(this).is(':checked'))
+                {
+                    $("#cPsw").append('<label><h3>Password</h3></label> <div class="6u"> <input type="password" name="psw" id="psw"/> </div>');
+                    //alert('hellor');
+                }else{
+                    $("#cPsw").empty();
+                }
+            }));
+        </script>
+	</body>
+</html>
