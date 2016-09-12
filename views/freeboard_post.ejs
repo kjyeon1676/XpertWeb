@@ -29,7 +29,7 @@
 										<a href="#">SubBoard</a>
 										<ul>
 											<li><a href="/freeboard_list">Free</a></li>
-											<li><a href="#">Web</a></li>
+											<li><a href="/freeboard_web">Web</a></li>
 											<li><a href="#">System</a></li>
 											<li><a href="#">Network</a></li>
                                             <li><a href="#">Reversing</a></li>
@@ -82,7 +82,7 @@
 								</div>
 							</div>
 						<div class="row uniform 50%">
-							<div class="12u">
+							<div class="6u">
 								<div class="select-wrapper">
 									<select name="category" id="category" readonly>
 										<option value="">
@@ -94,6 +94,25 @@
                                             Introduce
                                         <%}else{%>
                                             Joke
+                                        <%}%>
+                                        </option>
+									</select>
+								</div>
+							</div>
+                            <div class="6u">
+								<div class="select-wrapper">
+									<select name="boardCategory" id="boardCategory" readonly>
+										<option value="">
+                                        <% if(rows.boardCategory==0){%>
+                                            free
+                                        <%}else if(rows.boardCategory==1){%>
+                                            web
+                                        <%}else if(rows.boardCategory==2){%>
+                                            system
+                                        <%}else if(rows.boardCategory==3){%>
+                                            reversing
+                                        <%}else{%>
+                                            network
                                         <%}%>
                                         </option>
 									</select>

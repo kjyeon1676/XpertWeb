@@ -51,6 +51,7 @@ app.get('/logout',routes.logout);
 app.post('/board_write',routes.board_write_post);
 app.get('/board_write',routes.board_write);
 app.get('/freeboard_list',routes.freeboard_list);
+app.get('/freeboard_web',routes.freeboard_web);
 app.get('/freeboard_list_search',routes.freeboard_list_search);
 app.get('/freeboard_post/:id',routes.freeboard_post);
 app.get('/freeboard_post_psw/:id',routes.freeboard_post_psw);
