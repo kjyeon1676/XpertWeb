@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Session Name="C:\Users\Jaeyeon\XpertWeb\XpertWeb.workspace">
-  <int Value="25" Name="m_selectedTab"/>
+  <int Value="1" Name="m_selectedTab"/>
   <wxString Value="C:\Users\Jaeyeon\XpertWeb\XpertWeb.workspace" Name="m_workspaceName"/>
   <TabInfoArray Name="TabInfoArray">
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\app.js" Name="FileName"/>
       <int Value="15" Name="FirstVisibleLine"/>
-      <int Value="44" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\app.js" Name="FileName"/>
-      <int Value="132" Name="FirstVisibleLine"/>
-      <int Value="72" Name="CurrentLine"/>
+      <int Value="53" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\routes\index.js" Name="FileName"/>
-      <int Value="10" Name="FirstVisibleLine"/>
-      <int Value="27" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\routes\index.js" Name="FileName"/>
-      <int Value="7" Name="FirstVisibleLine"/>
-      <int Value="156" Name="CurrentLine"/>
+      <int Value="693" Name="FirstVisibleLine"/>
+      <int Value="733" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -47,8 +33,8 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\index.ejs" Name="FileName"/>
-      <int Value="24" Name="FirstVisibleLine"/>
-      <int Value="55" Name="CurrentLine"/>
+      <int Value="3" Name="FirstVisibleLine"/>
+      <int Value="31" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -56,34 +42,6 @@
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\login.ejs" Name="FileName"/>
       <int Value="24" Name="FirstVisibleLine"/>
       <int Value="50" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\login.jade" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="7" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\admin.jade" Name="FileName"/>
-      <int Value="15" Name="FirstVisibleLine"/>
-      <int Value="40" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\layout.jade" Name="FileName"/>
-      <int Value="48" Name="FirstVisibleLine"/>
-      <int Value="37" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\public\javascripts\script.js" Name="FileName"/>
-      <int Value="882" Name="FirstVisibleLine"/>
-      <int Value="851" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -96,29 +54,15 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\freeboard_post.ejs" Name="FileName"/>
-      <int Value="93" Name="FirstVisibleLine"/>
-      <int Value="54" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\evaluation.jade" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="120" Name="CurrentLine"/>
+      <int Value="14" Name="FirstVisibleLine"/>
+      <int Value="31" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\board_write.ejs" Name="FileName"/>
-      <int Value="105" Name="FirstVisibleLine"/>
-      <int Value="82" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\sign_up.jade" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="22" Name="CurrentLine"/>
+      <int Value="9" Name="FirstVisibleLine"/>
+      <int Value="31" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -131,43 +75,8 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\freeboard_list.ejs" Name="FileName"/>
-      <int Value="6" Name="FirstVisibleLine"/>
-      <int Value="31" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\automake.jade" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\community.jade" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\make_timetable.jade" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="28" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\need_login.jade" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
-      <wxArrayString Name="Bookmarks"/>
-      <IntVector Name="CollapsedFolds"/>
-    </TabInfo>
-    <TabInfo>
-      <wxString Value="C:\Users\Jaeyeon\Desktop\YuTime(최종)\views\preference.jade" Name="FileName"/>
-      <int Value="48" Name="FirstVisibleLine"/>
-      <int Value="35" Name="CurrentLine"/>
+      <int Value="51" Name="FirstVisibleLine"/>
+      <int Value="173" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -181,7 +90,7 @@
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\sign_up.ejs" Name="FileName"/>
       <int Value="30" Name="FirstVisibleLine"/>
-      <int Value="51" Name="CurrentLine"/>
+      <int Value="67" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -194,15 +103,15 @@
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\freeboard_post_psw.ejs" Name="FileName"/>
-      <int Value="33" Name="FirstVisibleLine"/>
-      <int Value="77" Name="CurrentLine"/>
+      <int Value="6" Name="FirstVisibleLine"/>
+      <int Value="31" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
       <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\freeboard_post_update.ejs" Name="FileName"/>
-      <int Value="128" Name="FirstVisibleLine"/>
-      <int Value="91" Name="CurrentLine"/>
+      <int Value="11" Name="FirstVisibleLine"/>
+      <int Value="31" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
@@ -277,9 +186,9 @@
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>
     <TabInfo>
-      <wxString Value="Untitled1" Name="FileName"/>
-      <int Value="0" Name="FirstVisibleLine"/>
-      <int Value="0" Name="CurrentLine"/>
+      <wxString Value="C:\Users\Jaeyeon\XpertWeb\views\freeboard_web.ejs" Name="FileName"/>
+      <int Value="88" Name="FirstVisibleLine"/>
+      <int Value="115" Name="CurrentLine"/>
       <wxArrayString Name="Bookmarks"/>
       <IntVector Name="CollapsedFolds"/>
     </TabInfo>

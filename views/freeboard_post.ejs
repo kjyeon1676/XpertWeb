@@ -103,13 +103,13 @@
 								<div class="select-wrapper">
 									<select name="boardCategory" id="boardCategory" readonly>
 										<option value="">
-                                        <% if(rows.boardCategory==0){%>
+                                        <% if(rows.boardCategory==1){%>
                                             free
-                                        <%}else if(rows.boardCategory==1){%>
-                                            web
                                         <%}else if(rows.boardCategory==2){%>
-                                            system
+                                            web
                                         <%}else if(rows.boardCategory==3){%>
+                                            system
+                                        <%}else if(rows.boardCategory==4){%>
                                             reversing
                                         <%}else{%>
                                             network

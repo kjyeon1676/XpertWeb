@@ -29,9 +29,9 @@
 										<ul>
 											<li><a href="/freeboard_list">Free</a></li>
 											<li><a href="/freeboard_web">Web</a></li>
-											<li><a href="#">System</a></li>
-											<li><a href="#">Network</a></li>
-                                            <li><a href="#">Reversing</a></li>
+											<li><a href="/freeboard_system">System</a></li>
+											<li><a href="/freeboard_network">Network</a></li>
+                                            <li><a href="/freeboard_reversing">Reversing</a></li>
 										</ul>
 									</li>
 								</ul>
@@ -82,19 +82,19 @@
                                             <% students.forEach( function( student ) { %>
                                             <tr>
                                                 <td>
-                                                    <% if(student.category==0){%>
+                                                    <% if(student.category==1){%>
                                                         <% if(student.psw!=null){%>
                                                             <i class="fa fa-key">important</i>
                                                         <%} else{%>
                                                             important
                                                         <%} %>
-                                                    <% }else if(student.category==1){%>
+                                                    <% }else if(student.category==2){%>
                                                         <% if(student.psw!=null){%>
                                                             <i class="fa fa-key">Joke</i>
                                                         <%}else{%>
                                                             Joke
                                                         <%} %>
-                                                    <% }else if(student.category==2){%>
+                                                    <% }else if(student.category==3){%>
                                                         <% if(student.psw!=null){%>
                                                             <i class="fa fa-key">introduce</i>
                                                         <% }else{%>

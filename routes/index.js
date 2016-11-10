@@ -131,17 +131,19 @@ exports.board_write_post = function(req,res){
     var Mdate = dt.toFormat('YYYY-MM-DD HH24:MM');
     if(Psw=='undefined'){
         pool.getConnection(function(err,connection){
-           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,'',Category,boardCat]);
-           connection.release();
+           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,'',Category,boardCat], function(error,result){
+           if(error){ console.log("실패"); connection.release();}
            res.redirect('/freeboard_list');
+           });
         });
     }
     else{
         pool.getConnection(function(err,connection){
-           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,Psw,Category,boardCat]);
+           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,Psw,Category,boardCat], function(error,result){
+           if(error){ console.log("실패"); connection.release();}
            console.log(query);
-           connection.release();
            res.redirect('/freeboard_list');
+           });
         });
     }
 };
@@ -514,7 +516,7 @@ exports.freeboard_list = function(req,res){
     }catch(e) { }
     if(Email == ''){
        pool.getConnection(function(err,connection){
-            var sql = "SELECT Count(idx) cnt FROM freeboard;"
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=1;"
             connection.query(sql,function(err,rows){
                 if(err) { console.log(err);}
                 cnt = rows[0].cnt;
@@ -557,7 +559,7 @@ exports.freeboard_list = function(req,res){
         });
     }else{
         pool.getConnection(function(err,connection){
-            var sql = "SELECT Count(idx) cnt FROM freeboard;"
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=1;"
             connection.query(sql,function(err,rows){
                if(err) { console.log(err);}
                cnt = rows[0].cnt;
@@ -620,13 +622,13 @@ exports.freeboard_web = function(req,res){
     }catch(e) { }
     if(Email == ''){
        pool.getConnection(function(err,connection){
-            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=1;"
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=2;"
             connection.query(sql,function(err,rows){
                 if(err) { console.log(err);}
                 cnt = rows[0].cnt;
                 totalStudents = cnt;
                 pageCount = Math.ceil(cnt / pageSize);
-                var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,boardCategory,category,psw FROM freeboard WHERE boardCategory=1",function(error,result){
+                var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,boardCategory,category,psw FROM freeboard WHERE boardCategory=2",function(error,result){
                 if(error) { console.log("실패"); connection.release();} 
                 else{
                     for(var i=0; i< totalStudents; i++){
@@ -663,13 +665,13 @@ exports.freeboard_web = function(req,res){
         });
     }else{
         pool.getConnection(function(err,connection){
-            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=1;"
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=2;"
             connection.query(sql,function(err,rows){
                if(err) { console.log(err);}
                cnt = rows[0].cnt;
                totalStudents = cnt;
                pageCount = Math.ceil(cnt / pageSize);
-            var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,category,boardCategory,psw FROM freeboard WHERE boardCategory=1",function(error,result){
+            var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,category,boardCategory,psw FROM freeboard WHERE boardCategory=2",function(error,result){
                 if(error) { console.log("실패"); connection.release();} 
                 else{
                     for(var i=0; i< totalStudents; i++){
@@ -693,6 +695,324 @@ exports.freeboard_web = function(req,res){
                     connection.release();
                     res.render('freeboard_web',{
                         title:'Freeboard_web', MyEMail:Email,Mypriority:priority, rows:result,
+                        MyName:user_name,
+                        students: studentsList,
+                        pageSize : pageSize,
+                        totalStudents: totalStudents,
+                        pageCount: pageCount,
+                        currentPage: currentPage
+                    });
+                }
+            });
+            });
+        });
+    }
+};
+exports.freeboard_network = function(req,res){
+    var userInfo = req.session.userInfo;
+    var Email = '';
+    var priority='';
+    var cnt = '';
+    var user_name = '';
+    var totalStudents = '';
+    var pageSize = 5;
+    var pageCount = '';
+    var currentPage = 1,
+    students = [],
+    studentsArrays = [],
+    studentsList = [];
+    try{
+        Email = userInfo.Email;
+        priority = userInfo.priority;
+        user_name = userInfo.uName;
+    }catch(e) { }
+    if(Email == ''){
+       pool.getConnection(function(err,connection){
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=4;"
+            connection.query(sql,function(err,rows){
+                if(err) { console.log(err);}
+                cnt = rows[0].cnt;
+                totalStudents = cnt;
+                pageCount = Math.ceil(cnt / pageSize);
+                var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,boardCategory,category,psw FROM freeboard WHERE boardCategory=4",function(error,result){
+                if(error) { console.log("실패"); connection.release();} 
+                else{
+                    for(var i=0; i< totalStudents; i++){
+                        students.push({idx:result[i].idx,
+                            iname:result[i].iname,
+                            icount:result[i].icount,
+                            mdate:result[i].mdate,
+                            title:result[i].title,
+                            psw:result[i].psw,
+                            category:result[i].category,
+                            boardCategory:result[i].boardCategory
+                        });
+                    }
+                    while(students.length > 0){
+                        studentsArrays.push(students.splice(0,pageSize));
+                    }
+                    if(typeof req.query.page !== 'undefined'){
+                        currentPage = +req.query.page;
+                    }
+                    studentsList = studentsArrays[+currentPage - 1];
+                    connection.release();
+                    res.render('freeboard_network',{
+                        title:'Freeboard_network', MyEMail:'손님',Mypriority:'손님', rows:result,
+                        MyName:'손님',
+                        students: studentsList,
+                        pageSize : pageSize,
+                        totalStudents: totalStudents,
+                        pageCount: pageCount,
+                        currentPage: currentPage
+                    });
+                }
+            });
+            });
+        });
+    }else{
+        pool.getConnection(function(err,connection){
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=4;"
+            connection.query(sql,function(err,rows){
+               if(err) { console.log(err);}
+               cnt = rows[0].cnt;
+               totalStudents = cnt;
+               pageCount = Math.ceil(cnt / pageSize);
+            var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,category,boardCategory,psw FROM freeboard WHERE boardCategory=4",function(error,result){
+                if(error) { console.log("실패"); connection.release();} 
+                else{
+                    for(var i=0; i< totalStudents; i++){
+                        students.push({idx:result[i].idx,
+                            iname:result[i].iname,
+                            icount:result[i].icount,
+                            mdate:result[i].mdate,
+                            title:result[i].title,
+                            psw:result[i].psw,
+                            category:result[i].category,
+                            boardCategory:result[i].boardCategory
+                        });
+                    }
+                    while(students.length > 0){
+                        studentsArrays.push(students.splice(0,pageSize));
+                    }
+                    if(typeof req.query.page !== 'undefined'){
+                        currentPage = +req.query.page;
+                    }
+                    studentsList = studentsArrays[+currentPage - 1];
+                    connection.release();
+                    res.render('freeboard_network',{
+                        title:'Freeboard_network', MyEMail:Email,Mypriority:priority, rows:result,
+                        MyName:user_name,
+                        students: studentsList,
+                        pageSize : pageSize,
+                        totalStudents: totalStudents,
+                        pageCount: pageCount,
+                        currentPage: currentPage
+                    });
+                }
+            });
+            });
+        });
+    }
+};
+exports.freeboard_system = function(req,res){
+    var userInfo = req.session.userInfo;
+    var Email = '';
+    var priority='';
+    var cnt = '';
+    var user_name = '';
+    var totalStudents = '';
+    var pageSize = 5;
+    var pageCount = '';
+    var currentPage = 1,
+    students = [],
+    studentsArrays = [],
+    studentsList = [];
+    try{
+        Email = userInfo.Email;
+        priority = userInfo.priority;
+        user_name = userInfo.uName;
+    }catch(e) { }
+    if(Email == ''){
+       pool.getConnection(function(err,connection){
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=3;"
+            connection.query(sql,function(err,rows){
+                if(err) { console.log(err);}
+                cnt = rows[0].cnt;
+                totalStudents = cnt;
+                pageCount = Math.ceil(cnt / pageSize);
+                var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,boardCategory,category,psw FROM freeboard WHERE boardCategory=3",function(error,result){
+                if(error) { console.log("실패"); connection.release();} 
+                else{
+                    for(var i=0; i< totalStudents; i++){
+                        students.push({idx:result[i].idx,
+                            iname:result[i].iname,
+                            icount:result[i].icount,
+                            mdate:result[i].mdate,
+                            title:result[i].title,
+                            psw:result[i].psw,
+                            category:result[i].category,
+                            boardCategory:result[i].boardCategory
+                        });
+                    }
+                    while(students.length > 0){
+                        studentsArrays.push(students.splice(0,pageSize));
+                    }
+                    if(typeof req.query.page !== 'undefined'){
+                        currentPage = +req.query.page;
+                    }
+                    studentsList = studentsArrays[+currentPage - 1];
+                    connection.release();
+                    res.render('freeboard_system',{
+                        title:'Freeboard_system', MyEMail:'손님',Mypriority:'손님', rows:result,
+                        MyName:'손님',
+                        students: studentsList,
+                        pageSize : pageSize,
+                        totalStudents: totalStudents,
+                        pageCount: pageCount,
+                        currentPage: currentPage
+                    });
+                }
+            });
+            });
+        });
+    }else{
+        pool.getConnection(function(err,connection){
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=3;"
+            connection.query(sql,function(err,rows){
+               if(err) { console.log(err);}
+               cnt = rows[0].cnt;
+               totalStudents = cnt;
+               pageCount = Math.ceil(cnt / pageSize);
+            var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,category,boardCategory,psw FROM freeboard WHERE boardCategory=3",function(error,result){
+                if(error) { console.log("실패"); connection.release();} 
+                else{
+                    for(var i=0; i< totalStudents; i++){
+                        students.push({idx:result[i].idx,
+                            iname:result[i].iname,
+                            icount:result[i].icount,
+                            mdate:result[i].mdate,
+                            title:result[i].title,
+                            psw:result[i].psw,
+                            category:result[i].category,
+                            boardCategory:result[i].boardCategory
+                        });
+                    }
+                    while(students.length > 0){
+                        studentsArrays.push(students.splice(0,pageSize));
+                    }
+                    if(typeof req.query.page !== 'undefined'){
+                        currentPage = +req.query.page;
+                    }
+                    studentsList = studentsArrays[+currentPage - 1];
+                    connection.release();
+                    res.render('freeboard_system',{
+                        title:'Freeboard_system', MyEMail:Email,Mypriority:priority, rows:result,
+                        MyName:user_name,
+                        students: studentsList,
+                        pageSize : pageSize,
+                        totalStudents: totalStudents,
+                        pageCount: pageCount,
+                        currentPage: currentPage
+                    });
+                }
+            });
+            });
+        });
+    }
+};
+exports.freeboard_reversing = function(req,res){
+    var userInfo = req.session.userInfo;
+    var Email = '';
+    var priority='';
+    var cnt = '';
+    var user_name = '';
+    var totalStudents = '';
+    var pageSize = 5;
+    var pageCount = '';
+    var currentPage = 1,
+    students = [],
+    studentsArrays = [],
+    studentsList = [];
+    try{
+        Email = userInfo.Email;
+        priority = userInfo.priority;
+        user_name = userInfo.uName;
+    }catch(e) { }
+    if(Email == ''){
+       pool.getConnection(function(err,connection){
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=5;"
+            connection.query(sql,function(err,rows){
+                if(err) { console.log(err);}
+                cnt = rows[0].cnt;
+                totalStudents = cnt;
+                pageCount = Math.ceil(cnt / pageSize);
+                var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,boardCategory,category,psw FROM freeboard WHERE boardCategory=5",function(error,result){
+                if(error) { console.log("실패"); connection.release();} 
+                else{
+                    for(var i=0; i< totalStudents; i++){
+                        students.push({idx:result[i].idx,
+                            iname:result[i].iname,
+                            icount:result[i].icount,
+                            mdate:result[i].mdate,
+                            title:result[i].title,
+                            psw:result[i].psw,
+                            category:result[i].category,
+                            boardCategory:result[i].boardCategory
+                        });
+                    }
+                    while(students.length > 0){
+                        studentsArrays.push(students.splice(0,pageSize));
+                    }
+                    if(typeof req.query.page !== 'undefined'){
+                        currentPage = +req.query.page;
+                    }
+                    studentsList = studentsArrays[+currentPage - 1];
+                    connection.release();
+                    res.render('freeboard_reversing',{
+                        title:'Freeboard_reversing', MyEMail:'손님',Mypriority:'손님', rows:result,
+                        MyName:'손님',
+                        students: studentsList,
+                        pageSize : pageSize,
+                        totalStudents: totalStudents,
+                        pageCount: pageCount,
+                        currentPage: currentPage
+                    });
+                }
+            });
+            });
+        });
+    }else{
+        pool.getConnection(function(err,connection){
+            var sql = "SELECT Count(idx) cnt FROM freeboard WHERE boardCategory=5;"
+            connection.query(sql,function(err,rows){
+               if(err) { console.log(err);}
+               cnt = rows[0].cnt;
+               totalStudents = cnt;
+               pageCount = Math.ceil(cnt / pageSize);
+            var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,category,boardCategory,psw FROM freeboard WHERE boardCategory=5",function(error,result){
+                if(error) { console.log("실패"); connection.release();} 
+                else{
+                    for(var i=0; i< totalStudents; i++){
+                        students.push({idx:result[i].idx,
+                            iname:result[i].iname,
+                            icount:result[i].icount,
+                            mdate:result[i].mdate,
+                            title:result[i].title,
+                            psw:result[i].psw,
+                            category:result[i].category,
+                            boardCategory:result[i].boardCategory
+                        });
+                    }
+                    while(students.length > 0){
+                        studentsArrays.push(students.splice(0,pageSize));
+                    }
+                    if(typeof req.query.page !== 'undefined'){
+                        currentPage = +req.query.page;
+                    }
+                    studentsList = studentsArrays[+currentPage - 1];
+                    connection.release();
+                    res.render('freeboard_reversing',{
+                        title:'Freeboard_reversing', MyEMail:Email,Mypriority:priority, rows:result,
                         MyName:user_name,
                         students: studentsList,
                         pageSize : pageSize,
