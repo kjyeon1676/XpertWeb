@@ -63,7 +63,6 @@ exports.sign_up_post = function(req,res){
             if(result[0]){
                 res.send('<script>alert(\'둥록된 메일 입니다.\'); location.href=\"/sign_up\"</script>');
             }else{
-            console.log(result);
             var query = connection.query('INSERT INTO users (Email,password,priority,name,Address,grade,phone) VALUES(?,?,?,?,?,?,?)',[e,p,pCheck,name,Address,grade,phone]);
             //req.session.userInfo={Email:e,priority:pCheck,uName:name}
             connection.release();
@@ -110,7 +109,7 @@ exports.upload = function(req,res,next){
 	});
 	// all uploads are completed
 	form.on('close',function(){
-		res.send(f_name);
+		res.send('<script>alert(\'파일업로드 완료.\');history.back();</script>');
 	});
 	
 	// track progress
@@ -127,8 +126,10 @@ exports.board_write_post = function(req,res){
     var Psw = req.body.psw;
     var Category = req.body.category;
     var boardCat = req.body.boardCategory;
+    var filename = req.body.myfile;
     var dt = new Date();
     var Mdate = dt.toFormat('YYYY-MM-DD HH24:MM');
+    console.log(filename);
     if(Psw=='undefined'){
         pool.getConnection(function(err,connection){
            var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,'',Category,boardCat], function(error,result){
@@ -141,7 +142,7 @@ exports.board_write_post = function(req,res){
         pool.getConnection(function(err,connection){
            var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,Psw,Category,boardCat], function(error,result){
            if(error){ console.log("실패"); connection.release();}
-           console.log(query);
+           //console.log(query);
            res.redirect('/freeboard_list');
            });
         });
@@ -522,7 +523,7 @@ exports.freeboard_list = function(req,res){
                 cnt = rows[0].cnt;
                 totalStudents = cnt;
                 pageCount = Math.ceil(cnt / pageSize);
-                var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,boardCategory,category,psw FROM freeboard",function(error,result){
+                var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,boardCategory,category,psw FROM freeboard WHERE boardCategory=1",function(error,result){
                 if(error) { console.log("실패"); connection.release();} 
                 else{
                     for(var i=0; i< totalStudents; i++){
@@ -565,7 +566,7 @@ exports.freeboard_list = function(req,res){
                cnt = rows[0].cnt;
                totalStudents = cnt;
                pageCount = Math.ceil(cnt / pageSize);
-            var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,category,boardCategory,psw FROM freeboard",function(error,result){
+            var query = connection.query("SELECT idx,iname,icount, date_format(mdate,'%y-%m-%d %H:%i') mdate,title,category,boardCategory,psw FROM freeboard WHERE boardCategory=1",function(error,result){
                 if(error) { console.log("실패"); connection.release();} 
                 else{
                     for(var i=0; i< totalStudents; i++){
@@ -1068,7 +1069,7 @@ exports.index = function(req, res) {
     }
 };       
 exports.logout = function(req,res){
-    console.log(req.session.userInfo.Email+'님 로그아웃.');
+    console.log(req.session.userInfo.EMail+'님 로그아웃.');
     req.session.destroy(function(error){
         res.clearCookie('cookieemail');
         res.send('<script>alert(\'로그아웃 되었습니다.\'); location.href=\"/\"</script>');

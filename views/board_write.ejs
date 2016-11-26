@@ -117,22 +117,29 @@
                                 <textarea name="message" id="message" placeholder="Enter your text" rows="6"></textarea>
 							</div>
 						</div>
-						<div class="row uniform">
+                        <div class="row uniform 50%">
 							<div class="12u">
-								<ul class="actions">
+                                <ul class="actions">
                                     <li><input type="submit" value="write" /></li>
                                     <li><input type="reset" value="Reset" class="alt" /></li>
                                     <li><a href="/freeboard_list" class="button">back</a></li>
+                                </ul>
+							</div>
+						</div>      
+						</form>
+                        <hr />
+                         <div class="row uniform">
+							<div class="12u">
+								<ul class="actions">
                                     <li>
                                         <form method="post" action="/upload" enctype="multipart/form-data">
                                             <input type="file" name="myfile" />
+                                            <li><input type="submit" value="file send"/></li>
                                         </form>
                                     </li>
 								</ul>
 							</div>
 						</div>
-						</form>
-                        <hr />
                         </section>
                         </div>
                     </div>
