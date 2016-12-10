@@ -72,8 +72,35 @@ exports.sign_up_post = function(req,res){
     });
     });
 };
+exports.gallery = function(req,res){
+    var userInfo = req.session.userInfo;
+    var Email = '';
+    var priority='';
+    var user_name = '';
+    var cookieemail = req.cookies.cookieemail;
+    try{
+        Email = userInfo.EMail;
+        priority = userInfo.priority;
+        user_name = userInfo.uName;
+    }catch(e) { }
+    if(Email == ''){
+        res.clearCookie('cookieemail');
+        res.send('<script>alert(\'권한이 없습니다.\'); location.href=\"/\"</script>');
+        
+    }else{
+        res.render('gallery',{
+           title:'gallery',MyEMail:Email,Mypriority:priority,MyName:user_name
+        });
+    }
+};
 exports.indexNew = function(req,res){
     res.render('indexNew');
+};
+exports.download = function(req,res){
+    var paramFile = req.params.id;
+    console.log(paramFile);
+    var filename = __dirname + "\\../uploaded/" + paramFile;
+    res.download(filename);
 };
 exports.upload = function(req,res,next){
     var form = new multiparty.Form();
@@ -126,13 +153,13 @@ exports.board_write_post = function(req,res){
     var Psw = req.body.psw;
     var Category = req.body.category;
     var boardCat = req.body.boardCategory;
-    var filename = req.body.myfile;
+    var filename = req.body.ff;
     var dt = new Date();
     var Mdate = dt.toFormat('YYYY-MM-DD HH24:MM');
     console.log(filename);
     if(Psw=='undefined'){
         pool.getConnection(function(err,connection){
-           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,'',Category,boardCat], function(error,result){
+           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory,fileName) VALUES(?,?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,'',Category,boardCat,filename], function(error,result){
            if(error){ console.log("실패"); connection.release();}
            res.redirect('/freeboard_list');
            });
@@ -140,7 +167,7 @@ exports.board_write_post = function(req,res){
     }
     else{
         pool.getConnection(function(err,connection){
-           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory) VALUES(?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,Psw,Category,boardCat], function(error,result){
+           var query = connection.query('INSERT INTO freeboard (iname,iidx,itext,mdate,icount,title,psw,category,boardCategory,fileName) VALUES(?,?,?,?,?,?,?,?,?,?)',[Name,MyEmail,Message,Mdate,0,Title,Psw,Category,boardCat,filename], function(error,result){
            if(error){ console.log("실패"); connection.release();}
            //console.log(query);
            res.redirect('/freeboard_list');
@@ -417,7 +444,7 @@ exports.freeboard_list_search = function(req,res){
                 cnt = rows[0].cnt;
                 totalStudents = cnt;
                 pageCount = Math.ceil(cnt / pageSize);
-                var query = connection.query('SELECT idx,iname,icount, date_format(mdate,"%y-%m-%d %H:%i") mdate,title,category,boardCategory FROM freeboard WHERE title=\''+s+'\';',function(error,result){
+                var query = connection.query('SELECT idx,iname,icount, date_format(mdate,"%y-%m-%d %H:%i") mdate,title,category,boardCategory,fileName FROM freeboard WHERE title=\''+s+'\';',function(error,result){
                 if(error) { console.log("실패"); connection.release();} 
                 else{
                     for(var i=0; i< totalStudents; i++){
@@ -428,7 +455,8 @@ exports.freeboard_list_search = function(req,res){
                             title:result[i].title,
                             psw:result[i].psw,
                             category:result[i].category,
-                            boardCategory:result[i].boardCategory
+                            boardCategory:result[i].boardCategory,
+                            filename : result[i].fileName
                         });
                     }
                     while(students.length > 0){
@@ -460,7 +488,7 @@ exports.freeboard_list_search = function(req,res){
                 cnt = rows[0].cnt;
                 totalStudents = cnt;
                 pageCount = Math.ceil(cnt / pageSize);
-                var query = connection.query('SELECT idx,iname,icount, date_format(mdate,"%y-%m-%d %H:%i") mdate,title,category,boardCategory FROM freeboard WHERE title=\''+s+'\';',function(error,result){
+                var query = connection.query('SELECT idx,iname,icount, date_format(mdate,"%y-%m-%d %H:%i") mdate,title,category,boardCategory,fileName FROM freeboard WHERE title=\''+s+'\';',function(error,result){
                 if(error) { console.log("실패"); connection.release();} 
                 else{
                     for(var i=0; i< totalStudents; i++){
@@ -471,7 +499,8 @@ exports.freeboard_list_search = function(req,res){
                             title:result[i].title,
                             psw:result[i].psw,
                             category:result[i].category,
-                            boardCategory:result[i].boardCategory
+                            boardCategory:result[i].boardCategory,
+                            filename : result[i].fileName
                         });
                     }
                     while(students.length > 0){

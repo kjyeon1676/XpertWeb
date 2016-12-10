@@ -19,6 +19,7 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="/">Home</a></li>
+                            <li><a href="/gallery">gallery</a></li>
 							<li>
 								<a href="#" class="icon fa-angle-down">Menu</a>
 								<ul>
@@ -145,6 +146,18 @@
 						</div>
 						</form>
                         <hr />
+                        <div class="row uniform">
+							<div class="12u">
+								<ul class="actions">
+                                <% if(rows.fileName!=null){%>
+                                    <li><input type="text" id="txt" readonly value="<%= rows.fileName%>"/></li>
+                                    <li><input type="button" onclick="getFileDown()" value="다운로드"/></li>
+                                <%}else{%>
+                                    <li>파일 없음</li>
+                                <%}%>
+								</ul>
+							</div>
+						</div>
                         </section>
                         </div>
                     </div>
@@ -165,7 +178,6 @@
 				</footer>
 
 		</div>
-
 		<!-- Scripts -->
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/jquery.dropotron.min.js"></script>

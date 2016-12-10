@@ -39,6 +39,7 @@ if (app.get('env') === 'development') {
   });
 }
 app.get('/sign_up',routes.sign_up);
+app.get('/gallery',routes.gallery);
 app.post('/sign_up',routes.sign_up_post);
 app.get('/list_test',routes.list_test);
 app.post('/upload',routes.upload);
@@ -48,6 +49,7 @@ app.get('/', routes.index);
 app.get('/login',routes.login);
 app.post('/login',routes.login_post);
 app.get('/logout',routes.logout);
+app.get('/download/:id',routes.download);
 app.post('/board_write',routes.board_write_post);
 app.get('/board_write',routes.board_write);
 app.get('/freeboard_list',routes.freeboard_list);

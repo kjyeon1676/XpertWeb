@@ -19,6 +19,7 @@
 					<nav id="nav">
 						<ul>
 							<li><a href="/">Home</a></li>
+                            <li><a href="/gallery">gallery</a></li>
 							<li>
 								<a href="#" class="icon fa-angle-down">Menu</a>
 								<ul>
@@ -121,6 +122,7 @@
 							<div class="12u">
                                 <ul class="actions">
                                     <li><input type="submit" value="write" /></li>
+                                    <il><input type="hidden" name="ff" id="ff" value=""></li>
                                     <li><input type="reset" value="Reset" class="alt" /></li>
                                     <li><a href="/freeboard_list" class="button">back</a></li>
                                 </ul>
@@ -133,8 +135,8 @@
 								<ul class="actions">
                                     <li>
                                         <form method="post" action="/upload" enctype="multipart/form-data">
-                                            <input type="file" name="myfile" />
-                                            <li><input type="submit" value="file send"/></li>
+                                            <input type="file" name="myfile" id="myfile" onchange="getCmaFileInfo(this, 'name')"/>
+                                            <li><input type="submit" name="fsend" id="fsend" value="file send"/></li>
                                         </form>
                                     </li>
 								</ul>
@@ -178,6 +180,12 @@
                 }else{
                     $("#cPsw").empty();
                 }
+            }));
+            if($("#fsend").click(function(){
+                var sendFile = getCmaFileInfo('myfile', 'all');
+                $(document).ready(function(){
+                    $('#ff').val(sendFile);
+                });
             }));
         </script>
 	</body>
