@@ -1,200 +1,199 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title><%=title%></title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-        
-        <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
 
-        <link href="charisma/css/charisma-app.css" rel="stylesheet">
-        <link href='charisma/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
-        <link href='charisma/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
-        <link href='charisma/bower_components/chosen/chosen.min.css' rel='stylesheet'>
-        <link href='charisma/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
-        <link href='charisma/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
-        <link href='charisma/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
-        <link href='charisma/css/jquery.noty.css' rel='stylesheet'>
-        <link href='charisma/css/noty_theme_default.css' rel='stylesheet'>
-        <link href='charisma/css/elfinder.min.css' rel='stylesheet'>
-        <link href='charisma/css/elfinder.theme.css' rel='stylesheet'>
-        <link href='charisma/css/jquery.iphone.toggle.css' rel='stylesheet'>
-        <link href='charisma/css/uploadify.css' rel='stylesheet'>
-        <link href='charisma/css/animate.min.css' rel='stylesheet'>
-	</head>
-	<body class="landing">
-		<div id="page-wrapper">
+<head>
+	<title>
+		<%=title%>
+	</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 
-			<!-- Header -->
-				<header id="header" class="alt">
-                    <h1><a href="/">@Xpert</a> by Yeunam University</h1>
-					<nav id="nav">
+	<!-- my Script -->
+	<script type="text/javascript" , src="../javascripts/gallery.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<link id="bs-css" href="charisma/css/bootstrap-cerulean.min.css" rel="stylesheet">
+
+	<link href="charisma/css/charisma-app.css" rel="stylesheet">
+	<link href='charisma/bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+	<link href='charisma/bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+	<link href='charisma/bower_components/chosen/chosen.min.css' rel='stylesheet'>
+	<link href='charisma/bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+	<link href='charisma/bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+	<link href='charisma/bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+	<link href='charisma/css/jquery.noty.css' rel='stylesheet'>
+	<link href='charisma/css/noty_theme_default.css' rel='stylesheet'>
+	<link href='charisma/css/elfinder.min.css' rel='stylesheet'>
+	<link href='charisma/css/elfinder.theme.css' rel='stylesheet'>
+	<link href='charisma/css/jquery.iphone.toggle.css' rel='stylesheet'>
+	<link href='charisma/css/uploadify.css' rel='stylesheet'>
+	<link href='charisma/css/animate.min.css' rel='stylesheet'>
+</head>
+
+<body class="landing">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="/">@Xpert</a> by Yeunam University</h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/gallery">gallery</a></li>
+					<li>
+						<a href="#" class="icon fa-angle-down">Menu</a>
 						<ul>
-							<li><a href="/">Home</a></li>
+							<li><a href="#">Introduce</a></li>
+							<li><a href="#">Contact</a></li>
+							<li><a href="elements.html">News</a></li>
 							<li>
-								<a href="#" class="icon fa-angle-down">Menu</a>
+								<a href="#">SubBoard</a>
 								<ul>
-									<li><a href="#">Introduce</a></li>
-									<li><a href="#">Contact</a></li>
-									<li><a href="elements.html">News</a></li>
-									<li>
-										<a href="#">SubBoard</a>
-										<ul>
-											<li><a href="/freeboard_list">Free</a></li>
-											<li><a href="#">Web</a></li>
-											<li><a href="#">System</a></li>
-											<li><a href="#">Network</a></li>
-                                            <li><a href="#">Reversing</a></li>
-										</ul>
-									</li>
+									<li><a href="/freeboard_list">Free</a></li>
+									<li><a href="/freeboard_web">Web</a></li>
+									<li><a href="/freeboard_system">System</a></li>
+									<li><a href="/freeboard_network">Network</a></li>
+									<li><a href="/freeboard_reversing">Reversing</a></li>
 								</ul>
 							</li>
-							<li><a href="#" class="button">Sign Up</a></li>
-                            <% if(MyEMail!='손님'){%>
-                            <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
-                            <%} else{%>
-                            <li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> LogIn</a></li>
-                            <% }%>
 						</ul>
-					</nav>
-				</header>
-			<!-- Banner -->
-				<section id="banner">
-					<h2 style="font-style:oblique">@Xpert</h2>
-                    <% if(MyName=='손님'){%>
-					<p> Welcom to <%= MyName %> and Please Sign up</p>
-					<%} else{%>
-                    <p> Welcom to <%= MyName %> and Let us Hacker Study</p>
-                    <%} %>
-                    <ul class="actions">
-						<li><a href="#" class="button special">Sign Up</a></li>
-						<li><a href="#" class="button">Learn More</a></li>
-					</ul>
-				</section>
+					</li>
+					<li><a href="#" class="button">Sign Up</a></li>
+					<% if(MyEMail!='손님'){%>
+						<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+						<%} else{%>
+							<li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> LogIn</a></li>
+							<% }%>
+				</ul>
+			</nav>
+		</header>
+		<!-- Banner -->
+		<section id="banner">
+			<h2 style="font-style:oblique">@Xpert</h2>
+			<% if(MyName=='손님'){%>
+				<p> Welcom to
+					<%= MyName %> and Please Sign up</p>
+				<%} else{%>
+					<p> Welcom to
+						<%= MyName %> and Let us Hacker Study</p>
+					<%} %>
+						<ul class="actions">
+							<li><a href="#" class="button special">Sign Up</a></li>
+							<li><a href="#" class="button">Learn More</a></li>
+						</ul>
+		</section>
 
-			<!-- Main -->
-				<section id="main" class="container">
-                <!-- 여기부터 채워넣기!-->
-                <div class="row">
-                    <div class="box col-md-12">
-                        <div class="box-inner">
-                            <div class="box-header well" data-original-title="">
-                                <h2><i class="fa fa-sign-in fa-fw"></i>Gallery</h2>
-                                    <div class="box-icon">
-                                        <a href="#" class="btn btn-setting btn-round btn-default"><i class="glyphicon glyphicon-cog"></i></a>
-                                        <a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
-                                        <a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
-                                    </div>
-                            </div>
-                        <div class="box-content">
-                        <br>
-                            <ul class="thumbnails gallery">
-                                <li id="image-1" class="thumbnail">
-                                <a style="background:url(https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/1.jpg)"
-                                   title="Sample Image 1" href="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/1.jpg">
-                                   <img class="grayscale" src="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/1.jpg"
-                                    alt="Sample Image 1"></a>
-                                </li>
-                                <li id="image-2" class="thumbnail">
-                                <a style="background:url(https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/2.jpg)"
-                                   title="Sample Image 2" href="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/2.jpg"><img
-                                        class="grayscale" src="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/2.jpg"
-                                        alt="Sample Image 2"></a>
-                                </li>
-                                                    <li id="image-3" class="thumbnail">
-                                <a style="background:url(https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/3.jpg)"
-                                   title="Sample Image 3" href="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/3.jpg"><img
-                                        class="grayscale" src="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/3.jpg"
-                                        alt="Sample Image 3"></a>
-                                </li>
-                                                    <li id="image-4" class="thumbnail">
-                                <a style="background:url(https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/4.jpg)"
-                                   title="Sample Image 4" href="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/4.jpg"><img
-                                        class="grayscale" src="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/4.jpg"
-                                        alt="Sample Image 4"></a>
-                                </li>
-                                                    <li id="image-5" class="thumbnail">
-                                <a style="background:url(https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/5.jpg)"
-                                   title="Sample Image 5" href="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/5.jpg"><img
-                                        class="grayscale" src="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/5.jpg"
-                                        alt="Sample Image 5"></a>
-                                </li>
-                                                    <li id="image-6" class="thumbnail">
-                                <a style="background:url(https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/6.jpg)"
-                                   title="Sample Image 6" href="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/6.jpg"><img
-                                        class="grayscale" src="https://raw.githubusercontent.com/usmanhalalit/charisma/1.x/img/gallery/thumbs/6.jpg"
-                                        alt="Sample Image 6"></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!--/span-->
-                </div><!--/row-->
-                <!-- content ends -->
-				</section>
+		<!-- Main -->
+		<section id="main" class="container">
+			<!-- 여기부터 채워넣기!-->
+			<div class="row">
+				<div class="box col-md-12">
+					<div class="box-inner">
+						<div class="box-header well" data-original-title="">
+							<h2><i class="fa fa-sign-in fa-fw"></i>Gallery</h2>
+							<div class="box-icon">
+								<a href="#" class="btn btn-setting btn-round btn-default"><i class="fa fa-sign-out fa-fw"></i></a>
+								<a href="#" class="btn btn-minimize btn-round btn-default"><i class="glyphicon glyphicon-chevron-up"></i></a>
+								<a href="#" class="btn btn-close btn-round btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<br>
+							<ul class="thumbnails gallery">
+									<% for(var i=0; i<MyFile.length - (MyFile.length / 2); i++){%>
+										<li id="image-<%= i+1 %>" class="thumbnail">
+											<a style="background:url(/images/uploaded/gallery/<%= MyFile[i] %>" title="<%= MyFile[i] %>" href="images/uploaded/gallery/<%= MyFile[i] %>">
+												<img class="grayscale" src="images/uploaded/gallery/thumbnail-<%= MyFile[i] %>" alt="<%= MyFile[i] %>"></a>
+										</li>
+									<%} %>
+							</ul>
+						</div>
+					</div>
+					<!-- file content -->
+					</br>
+					<hr />
+					<div class="row uniform">
+						<div class="12u">
+							<ul class="actions">
+								<li>
+									<form method="post" action="/upload" enctype="multipart/form-data">
+										<input type="file" name="imgFile" accept="image/*" id="imgFile" onChange="onThumnail(this);" />
+										<li><input type="submit" name="fsend" id="fsend" value="file send" /></li>
+									</form>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--/span-->
+			</div>
+			<!--/row-->
+			<!-- content ends -->
 
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; @Xpert. All rights reserved.</li><li>Made by : kjyeon1676@naver.com</li>
-					</ul>
-				</footer>
+		</section>
 
-		</div>
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; @Xpert. All rights reserved.</li>
+				<li>Made by : kjyeon1676@naver.com</li>
+			</ul>
+		</footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollgress.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-            
-            
-            <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	</div>
 
-            <!-- library for cookie management -->
-            <script src="charisma/js/jquery.cookie.js"></script>
-            <!-- calender plugin -->
-            <script src='charisma/bower_components/moment/min/moment.min.js'></script>
-            <script src='charisma/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
-            <!-- data table plugin -->
-            <script src='charisma/js/jquery.dataTables.min.js'></script>
+	<!-- Scripts -->
+	<!--<script src="assets/js/jquery.min.js"></script>-->
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollgress.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
 
-            <!-- select or dropdown enhancer -->
-            <script src="charisma/bower_components/chosen/chosen.jquery.min.js"></script>
-            <!-- plugin for gallery image view -->
-            <script src="charisma/bower_components/colorbox/jquery.colorbox-min.js"></script>
-            <!-- notification plugin -->
-            <script src="charisma/js/jquery.noty.js"></script>
-            <!-- library for making tables responsive -->
-            <script src="charisma/bower_components/responsive-tables/responsive-tables.js"></script>
-            <!-- tour plugin -->
-            <script src="charisma/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
-            <!-- star rating plugin -->
-            <script src="charisma/js/jquery.raty.min.js"></script>
-            <!-- for iOS style toggle switch -->
-            <script src="charisma/js/jquery.iphone.toggle.js"></script>
-            <!-- autogrowing textarea plugin -->
-            <script src="charisma/js/jquery.autogrow-textarea.js"></script>
-            <!-- multiple file upload plugin -->
-            <script src="charisma/js/jquery.uploadify-3.1.min.js"></script>
-            <!-- history.js for cross-browser state change on ajax -->
-            <script src="charisma/js/jquery.history.js"></script>
-            <!-- application script for Charisma demo -->
-            <script src="charisma/js/charisma.js"></script>
-	</body>
+
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+	<!-- library for cookie management -->
+	<script src="charisma/js/jquery.cookie.js"></script>
+	<!-- calender plugin -->
+	<script src='charisma/bower_components/moment/min/moment.min.js'></script>
+	<script src='charisma/bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+	<!-- data table plugin -->
+	<script src='charisma/js/jquery.dataTables.min.js'></script>
+
+	<!-- select or dropdown enhancer -->
+	<script src="charisma/bower_components/chosen/chosen.jquery.min.js"></script>
+	<!-- plugin for gallery image view -->
+	<script src="charisma/bower_components/colorbox/jquery.colorbox-min.js"></script>
+	<!-- notification plugin -->
+	<script src="charisma/js/jquery.noty.js"></script>
+	<!-- library for making tables responsive -->
+	<script src="charisma/bower_components/responsive-tables/responsive-tables.js"></script>
+	<!-- tour plugin -->
+	<script src="charisma/bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+	<!-- star rating plugin -->
+	<script src="charisma/js/jquery.raty.min.js"></script>
+	<!-- for iOS style toggle switch -->
+	<script src="charisma/js/jquery.iphone.toggle.js"></script>
+	<!-- autogrowing textarea plugin -->
+	<script src="charisma/js/jquery.autogrow-textarea.js"></script>
+	<!-- multiple file upload plugin -->
+	<script src="charisma/js/jquery.uploadify-3.1.min.js"></script>
+	<!-- history.js for cross-browser state change on ajax -->
+	<script src="charisma/js/jquery.history.js"></script>
+	<!-- application script for Charisma demo -->
+	<script src="charisma/js/charisma.js"></script>
+</body>
+
 </html>

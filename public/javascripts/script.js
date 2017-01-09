@@ -82,3 +82,4 @@ function getFileDown(){
     var f = document.getElementById("txt");
     window.location = '/download/' + f.value;
 }
+
