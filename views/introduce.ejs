@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>
+        <%=title%>
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!-- my Script -->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" , src="../javascripts/script.js"></script>
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body onload="init()">
+    <div id="page-wrapper">
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="/">@Xpert</a> by Yeunam University</h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li>
+                        <a href="#" class="icon fa-angle-down">Menu</a>
+                        <ul>
+                            <li><a href="/introduce">Introduce</a></li>
+                            <li><a href="/executive">executive</a></li>
+                            <li><a href="elements.html">News</a></li>
+                            <li>
+                                <a href="#">SubBoard</a>
+                                <ul>
+                                    <li><a href="/freeboard_list">Free</a></li>
+                                    <li><a href="/freeboard_web">Web</a></li>
+                                    <li><a href="/freeboard_system">System</a></li>
+                                    <li><a href="/freeboard_network">Network</a></li>
+                                    <li><a href="/freeboard_reversing">Reversing</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="button">Sign Up</a></li>
+                    <% if(MyEMail!='손님'){%>
+                    <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                    <%} else{%>
+                    <li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> LogIn</a></li>
+                    <% }%>
+                </ul>
+            </nav>
+        </header>
+        <!-- Main -->
+        <section id="main" class="container">
+            <!-- 여기부터 채워넣기!-->
+            <header>
+                <h2>@Xpert</h2>
+                <p>영남대학교 컴퓨터공학과 정보보호 학술연구 동아리</p>
+            </header>
+            <div class="box">
+                <span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+                <hr>
+                <h3>This is a subheading</h3>
+                <p>Cep risus aliquam gravida cep ut lacus amet. Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus
+                    enim laoreet ac ac commodo faucibus faucibus. Curae ante vestibulum ante. Blandit. Ante accumsan nisi eu placerat gravida placerat adipiscing in risus fusce vitae ac mi accumsan nunc in accumsan tempor blandit aliquet aliquet lobortis.
+                    Ultricies blandit lobortis praesent turpis. Adipiscing accumsan adipiscing adipiscing ac lacinia cep. Orci blandit a iaculis adipiscing ac. Vivamus ornare laoreet odio vis praesent nunc lorem mi. Erat. Tempus sem faucibus ac id. Vis
+                    in blandit. Nascetur ultricies blandit ac. Arcu aliquam. Accumsan mi eget adipiscing nulla. Non vestibulum ac interdum condimentum semper commodo massa arcu.</p>
+                <div class="row">
+                    <div class="6u 12u(mobilep)">
+                        <h3>And now a subheading</h3>
+                        <p>Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus
+                            faucibus. Curae lorem ipsum adipiscing ac. Vivamus ornare laoreet odio vis praesent.</p>
+                    </div>
+                    <div class="6u 12u(mobilep)">
+                        <h3>And another subheading</h3>
+                        <p>Adipiscing faucibus nunc placerat. Tempus adipiscing turpis non blandit accumsan eget lacinia nunc integer interdum amet aliquam ut orci non col ut ut praesent. Semper amet interdum mi. Phasellus enim laoreet ac ac commodo faucibus
+                            faucibus. Curae lorem ipsum adipiscing ac. Vivamus ornare laoreet odio vis praesent.</p>
+                    </div>
+                </div>
+                <header>
+                  <hr>
+                  <p style="text-align:center; font-size:25px;">찾아오시는 길<p>
+                </header>
+                <div class="12u 12u(mobiep)">
+                  <div id='map_view' style="width:auto; height:300px;">
+                </div>
+                <div class="row">
+                  <div class='12u 12u(mobilep)'>
+                      <blockquote style="background-color:#fffaf0;">
+                        <br><a href="www.cse.yu.ac.kr" class="icon fa-home">&nbsp;경북 경산시 대학로 280 영남대학교 컴퓨터공학과 103호</a></br>
+                        <br><a href="#" class="icon fa-phone-square">&nbsp;&nbsp;053)810-2550</a></br>
+                        <br><a href="#" class="icon fa-fax">&nbsp;&nbsp;053)810-2550</a></br>
+                        <br><a href="#" class="icon fa-inbox">&nbsp;&nbsp;yu.ac.kr</a></br>
+                      </blockquote>
+                  </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+                <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; @Xpert. All rights reserved.</li>
+                <li>Made by : kjyeon1676@naver.com</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.dropotron.min.js"></script>
+    <script src="assets/js/jquery.scrollgress.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="assets/js/main.js"></script>
+    <script>
+    function init(){
+      var Y_point = 35.830618;
+      var X_point = 128.754527;
+
+      var zoomLevel = 16;
+      var markerTitle = "영남대학교 IT관"
+      var markerMaxWidth = 300;
+
+      //말풍선 내용
+      var contentString = '<div>' +
+      '<h2>영남대학교 IT관 103호</h2>'+
+      '</div>';
+      var myLating = new google.maps.LatLng(Y_point, X_point);
+      var mapOptions = {
+        zoom : zoomLevel,
+        center: myLating,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById('map_view'), mapOptions);
+      var marker = new google.maps.Marker({
+        position:myLating,
+        map:map,
+        title:markerTitle
+      });
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth:markerMaxWidth
+      });
+      google.maps.event.addListener(marker, 'click', function(){
+        infowindow.open(map, marker);
+      });
+    }
+    </script>
+</body>
+
+</html>

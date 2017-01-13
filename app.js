@@ -38,6 +38,8 @@ if (app.get('env') === 'development') {
     });
   });
 }
+app.get('/introduce', routes.introduce);
+app.get('/executive', routes.executive);
 app.get('/sign_up',routes.sign_up);
 app.get('/gallery',routes.gallery);
 app.post('/sign_up',routes.sign_up_post);

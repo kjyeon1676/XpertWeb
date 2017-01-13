@@ -1,177 +1,184 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title><%=title%></title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="assets/css/main.css" />
-        <!-- my Script -->
-        <script type="text/javascript", src="../javascripts/script.js"></script>
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-	</head>
-	<body class="landing">
-		<div id="page-wrapper">
 
-			<!-- Header -->
-				<header id="header" class="alt">
-                    <h1><a href="/">@Xpert</a> by Yeunam University</h1>
-					<nav id="nav">
+<head>
+	<title>
+		<%=title%>
+	</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!-- my Script -->
+	<script type="text/javascript" , src="../javascripts/script.js"></script>
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+
+<body class="landing">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="/">@Xpert</a> by Yeunam University</h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="/">Home</a></li>
+					<li><a href="/gallery">gallery</a></li>
+					<li>
+						<a href="#" class="icon fa-angle-down">Menu</a>
 						<ul>
-							<li><a href="/">Home</a></li>
-                            <li><a href="/gallery">gallery</a></li>
+							<li><a href="/introduce">Introduce</a></li>
+							<li><a href="/executive">executive</a></li>
+							<li><a href="elements.html">News</a></li>
 							<li>
-								<a href="#" class="icon fa-angle-down">Menu</a>
+								<a href="#">SubBoard</a>
 								<ul>
-									<li><a href="#">Introduce</a></li>
-									<li><a href="#">Contact</a></li>
-									<li><a href="elements.html">News</a></li>
-									<li>
-										<a href="#">SubBoard</a>
-										<ul>
-											<li><a href="/freeboard_list">Free</a></li>
-											<li><a href="/freeboard_web">Web</a></li>
-											<li><a href="/freeboard_system">System</a></li>
-											<li><a href="/freeboard_network">Network</a></li>
-                                            <li><a href="/freeboard_reversing">Reversing</a></li>
-										</ul>
-									</li>
+									<li><a href="/freeboard_list">Free</a></li>
+									<li><a href="/freeboard_web">Web</a></li>
+									<li><a href="/freeboard_system">System</a></li>
+									<li><a href="/freeboard_network">Network</a></li>
+									<li><a href="/freeboard_reversing">Reversing</a></li>
 								</ul>
 							</li>
-							<li><a href="/sign_up" class="button">Sign Up</a></li>
-                            <% if(MyEMail!='손님'){%>
-                            <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
-                            <%} else{%>
-                            <li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> LogIn</a></li>
-                            <% }%>
 						</ul>
-					</nav>
-				</header>
-			<!-- Banner -->
-				<section id="banner" id=bannerImage>
-					<h2 style="font-style:oblique">@Xpert</h2>
-                    <% if(MyName!='손님'){%>
-                    <p> Welcom to <%= MyName %> and Let us Hacker Study</p>
-					<%} else{%>
-                    <p> Welcom to <%= MyName %> and Please Sign up</p>
-                    <%} %>
-                    <ul class="actions">
-						<li><a href="/sign_up" class="button special">Sign Up</a></li>
-						<li><a href="#" class="button">Learn More</a></li>
-					</ul>
-				</section>
+					</li>
+					<li><a href="/sign_up" class="button">Sign Up</a></li>
+					<% if(MyEMail!='손님'){%>
+						<li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+						<%} else{%>
+							<li><a href="/login"><i class="fa fa-sign-in fa-fw"></i> LogIn</a></li>
+							<% }%>
+				</ul>
+			</nav>
+		</header>
+		<!-- Banner -->
+		<section id="banner" id=bannerImage>
+			<h2 style="font-style:oblique">@Xpert</h2>
+			<% if(MyName!='손님'){%>
+				<p> Welcom to
+					<%= MyName %> and Let us Hacker Study</p>
+				<%} else{%>
+					<p> Welcom to
+						<%= MyName %> and Please Sign up</p>
+					<%} %>
+						<ul class="actions">
+							<li><a href="/sign_up" class="button special">Sign Up</a></li>
+							<li><a href="#" class="button">Learn More</a></li>
+						</ul>
+		</section>
 
-			<!-- Main -->
-				<section id="main" class="container">
+		<!-- Main -->
+		<section id="main" class="container">
 
-					<section class="box special">
-						<header class="major">
-							<h2>Welcom to @Xpert HomePage!!!
+			<section class="box special">
+				<header class="major">
+					<h2>Welcom to @Xpert HomePage!!!
 							<br />
 							In this Hompage, Dreams come true!</h2>
-							<p>We studied the protection of information<br />
-							And a variety of exchange activities.</p>
-						</header>
-						<span class="image featured">
+					<p>We studied the protection of information<br /> And a variety of exchange activities.</p>
+				</header>
+				<span class="image featured">
                             <img src="images/main1.jpg" alt="xpertImage" id=mainImage />
                         </span>
+			</section>
+
+			<section class="box special features">
+				<div class="features-row">
+					<section>
+						<span class="icon major fa-html5"></span>
+						<h3>Web Study</h3>
+						<p>웹 스터디에 대한 설명입니다.</p>
+					</section>
+					<section>
+						<span class="icon major fa-gear"></span>
+						<h3>System Study</h3>
+						<p>시스템 스터디에 대한 설명입니다.</p>
+					</section>
+				</div>
+				<div class="features-row">
+					<section>
+						<span class="icon major fa-rss"></span>
+						<h3>Network Study</h3>
+						<p>네트워크 스터디에 대한 설명입니다.</p>
+					</section>
+					<section>
+						<span class="icon major fa-lock accent5"></span>
+						<h3>Research and development</h3>
+						<p>저희는 보안에 대해 연구하고 공부합니다.</p>
+					</section>
+				</div>
+			</section>
+
+			<div class="row">
+				<div class="6u 12u(narrower)">
+
+					<section class="box special">
+						<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
+						<h3>Introduce</h3>
+						<p>You can see the information on the history and
+							<br>various activities.</p>
+						<ul class="actions">
+							<li><a href="#" class="button alt">Learn More</a></li>
+						</ul>
 					</section>
 
-					<section class="box special features">
-						<div class="features-row">
-							<section>
-								<span class="icon major fa-html5"></span>
-								<h3>Web Study</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-							<section>
-								<span class="icon major fa-gear"></span>
-								<h3>System Study</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-						</div>
-						<div class="features-row">
-							<section>
-								<span class="icon major fa-rss"></span>
-								<h3>Network Study</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-							<section>
-								<span class="icon major fa-lock accent5"></span>
-								<h3>Research and development</h3>
-								<p>Integer volutpat ante et accumsan commophasellus sed aliquam feugiat lorem aliquet ut enim rutrum phasellus iaculis accumsan dolore magna aliquam veroeros.</p>
-							</section>
-						</div>
+				</div>
+				<div class="6u 12u(narrower)">
+
+					<section class="box special">
+						<span class="image featured"><img src="images/pic/gallery_background.PNG" alt="" /></span>
+						<h3>Gallery</h3>
+						<p>Our is a place where memories are clogged.
+							<br> You can see a variety of appearance.</p>
+						<ul class="actions">
+							<li><a href="#" class="button alt">View</a></li>
+						</ul>
 					</section>
 
-					<div class="row">
-						<div class="6u 12u(narrower)">
+				</div>
+			</div>
 
-							<section class="box special">
-								<span class="image featured"><img src="images/pic02.jpg" alt="" /></span>
-								<h3>Introduce</h3>
-								<p>You can see the information on the history and 
-                                <br>various activities.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">Learn More</a></li>
-								</ul>
-							</section>
+		</section>
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+				<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+				<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; @Xpert. All rights reserved.</li>
+				<li>Made by : kjyeon1676@naver.com</li>
+			</ul>
+		</footer>
 
-						</div>
-						<div class="6u 12u(narrower)">
+	</div>
 
-							<section class="box special">
-								<span class="image featured"><img src="images/pic03.jpg" alt="" /></span>
-								<h3>Gallery</h3>
-								<p>Our is a place where memories are clogged.
-                                <br>
-                                You can see a variety of appearance.</p>
-								<ul class="actions">
-									<li><a href="#" class="button alt">View</a></li>
-								</ul>
-							</section>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/jquery.scrollgress.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+	<script>
+		var myImage = document.getElementById("mainImage");
+		var imageArray = ["images/main1.jpg", "images/main2.jpg", "images/main3.jpg", "images/main4.jpg"];
+		var imageIndex = 0;
 
-						</div>
-					</div>
+		function changeImage() {
+			myImage.setAttribute("src", imageArray[imageIndex]);
+			imageIndex++;
+			if (imageIndex >= imageArray.length) {
+				imageIndex = 0;
+			}
+		}
+		setInterval(changeImage, 3000);
+	</script>
+</body>
 
-				</section>
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="icons">
-						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
-						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-						<li><a href="#" class="icon fa-google-plus"><span class="label">Google+</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li>&copy; @Xpert. All rights reserved.</li><li>Made by : kjyeon1676@naver.com</li>
-					</ul>
-				</footer>
-
-		</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/jquery.scrollgress.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-        <script>
-            var myImage = document.getElementById("mainImage");
-            var imageArray = ["images/main1.jpg","images/main2.jpg","images/main3.jpg","images/main4.jpg"];
-            var imageIndex = 0;
-            function changeImage(){
-                myImage.setAttribute("src",imageArray[imageIndex]);
-                imageIndex++;
-                if(imageIndex >= imageArray.length){
-                    imageIndex=0;
-                }
-            }
-            setInterval(changeImage,3000);
-        </script>
-	</body>
 </html>

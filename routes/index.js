@@ -15,6 +15,73 @@ var pool = mysql.createPool({
     connectionLimit: 20,
     waitForConnections: false
 });
+
+exports.executive = function(req, res){
+    var userInfo = req.session.userInfo;
+    var Email = '';
+    var priority = '';
+    var user_name = '';
+    var members = [];
+    members.push({ cont:'회원', name:'10기 장재훈'});
+    members.push({ cont:'회원', name:'11기 장재훈'});
+    members.push({ cont:'회원', name:'12기 장재훈'});
+    members.push({ cont:'회원', name:'13기 장재훈'});
+    members.push({ cont:'회원', name:'14기 장재훈'});
+    members.push({ cont:'회원', name:'15기 장재훈'});
+    members.push({ cont:'회원', name:'16기 장재훈'});
+    members.push({ cont:'회원', name:'17기 장재훈'});
+    members.push({ cont:'회원', name:'18기 장재훈'});
+    members.push({ cont:'회원', name:'19기 장재훈'});
+    console.log(members[2].cont);
+    try {
+        Email = userInfo.EMail;
+        priority = userInfo.priority;
+        user_name = userInfo.uName;
+      } catch (e) {}
+      if (Email == '') {
+        res.render('executive', {
+            title: 'executive',
+            MyEMail: '손님',
+            Mypriority: '손님',
+            MyName: '손님',
+            MyMembers: members,
+          });
+      } else {
+        res.render('executive', {
+            title: 'executive',
+            MyEMail: Email,
+            Mypriority: priority,
+            MyName: user_name,
+            MyMembers: members,
+        });
+      }
+}
+exports.introduce = function(req, res){
+    var userInfo = req.session.userInfo;
+    var Email = '';
+    var priority = '';
+    var user_name = '';
+    try {
+        Email = userInfo.EMail;
+        priority = userInfo.priority;
+        user_name = userInfo.uName;
+      } catch (e) {}
+      if (Email == '') {
+        res.render('introduce', {
+            title: 'introduce',
+            MyEMail: '손님',
+            Mypriority: '손님',
+            MyName: '손님'
+          });
+      } else {
+        res.render('introduce', {
+            title: 'introduce',
+            MyEMail: Email,
+            Mypriority: priority,
+            MyName: user_name
+        });
+      }
+}
 exports.sign_up = function(req, res) {
     var userInfo = req.session.userInfo;
     var Email = '';
